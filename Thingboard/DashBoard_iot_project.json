@@ -1,0 +1,826 @@
+{
+  "title": "IOT Project",
+  "configuration": {
+    "description": "IM2AG room's occupation",
+    "widgets": {
+      "0cab77e0-e34c-eeda-e849-cede7bcf8f98": {
+        "isSystemType": true,
+        "bundleAlias": "cards",
+        "typeAlias": "entities_table",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 7.5,
+        "sizeY": 6.5,
+        "config": {
+          "timewindow": {
+            "realtime": {
+              "interval": 1000,
+              "timewindowMs": 86400000
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "4px",
+          "settings": {
+            "enableSearch": true,
+            "displayPagination": true,
+            "defaultPageSize": 10,
+            "defaultSortOrder": "entityName",
+            "displayEntityName": true,
+            "displayEntityType": true,
+            "enableSelectColumnDisplay": true
+          },
+          "title": "New Entities table",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "padding": "5px 10px 5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "eacec17f-f20a-0943-ca45-2bd1dc2611f9",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "last_taux_CO2",
+                  "type": "timeseries",
+                  "label": "last_taux_CO2",
+                  "color": "#2196f3",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "cellStyleFunction": "",
+                    "useCellContentFunction": false,
+                    "cellContentFunction": ""
+                  },
+                  "_hash": 0.02001285649518869
+                },
+                {
+                  "name": "temperature",
+                  "type": "timeseries",
+                  "label": "temperature",
+                  "color": "#f44336",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "cellStyleFunction": "",
+                    "useCellContentFunction": false,
+                    "cellContentFunction": ""
+                  },
+                  "_hash": 0.07929429978239644
+                },
+                {
+                  "name": "taux_occupation",
+                  "type": "timeseries",
+                  "label": "taux_occupation",
+                  "color": "#f44336",
+                  "settings": {
+                    "columnWidth": "0px",
+                    "useCellStyleFunction": false,
+                    "cellStyleFunction": "",
+                    "useCellContentFunction": false,
+                    "cellContentFunction": ""
+                  },
+                  "_hash": 0.6576186159355444
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "rowClick": [],
+            "rowDoubleClick": [
+              {
+                "name": "to_rom_details",
+                "icon": "more_horiz",
+                "type": "openDashboardState",
+                "targetDashboardStateId": "details_room",
+                "setEntityId": true,
+                "stateEntityParamName": null,
+                "openRightLayout": false,
+                "id": "59b924c7-96bf-587a-33c7-e7e0af55e3d7"
+              }
+            ]
+          }
+        },
+        "row": 0,
+        "col": 0,
+        "id": "0cab77e0-e34c-eeda-e849-cede7bcf8f98"
+      },
+      "c76d8baf-7652-dafe-0476-bc0bcedfd845": {
+        "isSystemType": true,
+        "bundleAlias": "charts",
+        "typeAlias": "basic_timeseries",
+        "type": "timeseries",
+        "title": "New widget",
+        "sizeX": 8,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "316b2974-ac4b-9d18-9727-b51d9d67adc6",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "last_taux_CO2",
+                  "type": "timeseries",
+                  "label": "last_taux_CO2",
+                  "color": "#2196f3",
+                  "settings": {
+                    "excludeFromStacking": false,
+                    "hideDataByDefault": false,
+                    "disableDataHiding": false,
+                    "removeFromLegend": false,
+                    "showLines": true,
+                    "fillLines": false,
+                    "showPoints": false,
+                    "showPointShape": "circle",
+                    "pointShapeFormatter": "var size = radius * Math.sqrt(Math.PI) / 2;\nctx.moveTo(x - size, y - size);\nctx.lineTo(x + size, y + size);\nctx.moveTo(x - size, y + size);\nctx.lineTo(x + size, y - size);",
+                    "showPointsLineWidth": 5,
+                    "showPointsRadius": 3,
+                    "tooltipValueFormatter": "",
+                    "showSeparateAxis": false,
+                    "axisTitle": "",
+                    "axisPosition": "left",
+                    "axisTicksFormatter": "",
+                    "thresholds": [
+                      {
+                        "thresholdValueSource": "predefinedValue"
+                      }
+                    ],
+                    "comparisonSettings": {
+                      "showValuesForComparison": true,
+                      "comparisonValuesLabel": "",
+                      "color": ""
+                    }
+                  },
+                  "_hash": 0.5398592943725793
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "hideInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "selectedTab": 0,
+            "realtime": {
+              "timewindowMs": 60000,
+              "interval": 1000
+            },
+            "aggregation": {
+              "type": "AVG",
+              "limit": 2500
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#fff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "8px",
+          "settings": {
+            "shadowSize": 4,
+            "fontColor": "#545454",
+            "fontSize": 10,
+            "xaxis": {
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "yaxis": {
+              "showLabels": true,
+              "color": "#545454"
+            },
+            "grid": {
+              "color": "#545454",
+              "tickColor": "#DDDDDD",
+              "verticalLines": true,
+              "horizontalLines": true,
+              "outlineWidth": 1
+            },
+            "stack": false,
+            "tooltipIndividual": false,
+            "timeForComparison": "months",
+            "xaxisSecond": {
+              "axisPosition": "top",
+              "showLabels": true
+            }
+          },
+          "title": "Historique taux CO2",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "useDashboardTimewindow": false,
+          "displayTimewindow": true,
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "showLegend": true,
+          "legendConfig": {
+            "direction": "column",
+            "position": "bottom",
+            "sortDataKeys": false,
+            "showMin": false,
+            "showMax": false,
+            "showAvg": true,
+            "showTotal": false
+          }
+        },
+        "row": 0,
+        "col": 0,
+        "id": "c76d8baf-7652-dafe-0476-bc0bcedfd845"
+      },
+      "b6fee923-6093-49d2-f0f8-1a229a1e51eb": {
+        "isSystemType": true,
+        "bundleAlias": "digital_gauges",
+        "typeAlias": "mini_gauge_justgage",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 2,
+        "sizeY": 2,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "316b2974-ac4b-9d18-9727-b51d9d67adc6",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "taux_occupation",
+                  "type": "timeseries",
+                  "label": "taux_occupation",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.859777891475227
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "realtime": {
+              "timewindowMs": 60000
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#ffffff",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "0px",
+          "settings": {
+            "maxValue": 100,
+            "minValue": 0,
+            "donutStartAngle": 90,
+            "showValue": true,
+            "showMinMax": true,
+            "gaugeWidthScale": 0.75,
+            "levelColors": [
+              "#00ff45",
+              "#ff0b00"
+            ],
+            "titleFont": {
+              "family": "Roboto",
+              "size": 12,
+              "style": "normal",
+              "weight": "500"
+            },
+            "labelFont": {
+              "family": "Roboto",
+              "size": 8,
+              "style": "normal",
+              "weight": "500"
+            },
+            "valueFont": {
+              "family": "Roboto",
+              "style": "normal",
+              "weight": "500",
+              "size": 32
+            },
+            "minMaxFont": {
+              "family": "Segment7Standard",
+              "size": 12,
+              "style": "normal",
+              "weight": "500"
+            },
+            "neonGlowBrightness": 0,
+            "dashThickness": 0,
+            "roundedLineCap": true,
+            "gaugeType": "donut",
+            "timestampFormat": "yyyy-MM-dd HH:mm:ss",
+            "animation": true,
+            "animationDuration": 500,
+            "animationRule": "linear",
+            "defaultColor": "#00ffe9"
+          },
+          "title": "Taux d'occupation",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "showLegend": false,
+          "titleIcon": ""
+        },
+        "row": 0,
+        "col": 0,
+        "id": "b6fee923-6093-49d2-f0f8-1a229a1e51eb"
+      },
+      "52d38bd1-9993-7aa7-d6f3-1b29efc11232": {
+        "isSystemType": true,
+        "bundleAlias": "digital_gauges",
+        "typeAlias": "simple_neon_gauge_justgage",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 3,
+        "sizeY": 3,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "316b2974-ac4b-9d18-9727-b51d9d67adc6",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "last_taux_CO2",
+                  "type": "timeseries",
+                  "label": "last_taux_CO2",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.6864451983221482
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "realtime": {
+              "timewindowMs": 60000
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "#000000",
+          "color": "rgba(255, 254, 254, 0.87)",
+          "padding": "0px",
+          "settings": {
+            "maxValue": 100,
+            "minValue": 0,
+            "donutStartAngle": 90,
+            "showValue": true,
+            "showMinMax": true,
+            "gaugeWidthScale": 1,
+            "levelColors": [],
+            "titleFont": {
+              "family": "Roboto",
+              "size": 12,
+              "style": "normal",
+              "weight": "500"
+            },
+            "labelFont": {
+              "family": "Roboto",
+              "size": 8,
+              "style": "normal",
+              "weight": "500"
+            },
+            "valueFont": {
+              "family": "Segment7Standard",
+              "style": "normal",
+              "weight": "500",
+              "size": 32
+            },
+            "minMaxFont": {
+              "family": "Segment7Standard",
+              "size": 12,
+              "style": "normal",
+              "weight": "500"
+            },
+            "neonGlowBrightness": 40,
+            "dashThickness": 1.5,
+            "gaugeType": "donut",
+            "animation": true,
+            "animationDuration": 500,
+            "animationRule": "linear",
+            "timestampFormat": "yyyy-MM-dd HH:mm:ss"
+          },
+          "title": "Taux CO2",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "widgetStyle": {},
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {},
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": ""
+        },
+        "row": 0,
+        "col": 0,
+        "id": "52d38bd1-9993-7aa7-d6f3-1b29efc11232"
+      },
+      "a6b567b8-f6c8-1e07-450d-601fbdb016ed": {
+        "isSystemType": true,
+        "bundleAlias": "digital_gauges",
+        "typeAlias": "digital_vertical_bar",
+        "type": "latest",
+        "title": "New widget",
+        "sizeX": 2.5,
+        "sizeY": 4.5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": null,
+              "entityAliasId": "316b2974-ac4b-9d18-9727-b51d9d67adc6",
+              "filterId": null,
+              "dataKeys": [
+                {
+                  "name": "temperature",
+                  "type": "timeseries",
+                  "label": "temperature",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.7283118401472128
+                }
+              ]
+            }
+          ],
+          "timewindow": {
+            "realtime": {
+              "timewindowMs": 60000
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "#000000",
+          "color": "rgba(255, 254, 254, 0.87)",
+          "padding": "0px",
+          "settings": {
+            "maxValue": 60,
+            "donutStartAngle": 90,
+            "showValue": true,
+            "showMinMax": true,
+            "gaugeWidthScale": 0.75,
+            "levelColors": [
+              "#3d5afe",
+              "#f44336"
+            ],
+            "titleFont": {
+              "family": "Roboto",
+              "size": 12,
+              "style": "normal",
+              "weight": "500"
+            },
+            "labelFont": {
+              "family": "Roboto",
+              "size": 8,
+              "style": "normal",
+              "weight": "500"
+            },
+            "valueFont": {
+              "family": "Segment7Standard",
+              "style": "normal",
+              "weight": "500",
+              "size": 14
+            },
+            "minMaxFont": {
+              "family": "Segment7Standard",
+              "size": 8,
+              "style": "normal",
+              "weight": "normal",
+              "color": "#cccccc"
+            },
+            "neonGlowBrightness": 20,
+            "showUnitTitle": true,
+            "gaugeColor": "#171a1c",
+            "gaugeType": "verticalBar",
+            "showTitle": false,
+            "minValue": -60,
+            "dashThickness": 1.2,
+            "animation": true,
+            "animationDuration": 500,
+            "animationRule": "linear",
+            "timestampFormat": "yyyy-MM-dd HH:mm:ss"
+          },
+          "title": "New Digital vertical bar",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "widgetStyle": {},
+          "useDashboardTimewindow": true,
+          "showLegend": false,
+          "actions": {}
+        },
+        "row": 0,
+        "col": 0,
+        "id": "a6b567b8-f6c8-1e07-450d-601fbdb016ed"
+      },
+      "afbb3835-8b40-edf5-3b0e-1f79e09fa95f": {
+        "isSystemType": true,
+        "bundleAlias": "alarm_widgets",
+        "typeAlias": "alarms_table",
+        "type": "alarm",
+        "title": "New widget",
+        "sizeX": 10.5,
+        "sizeY": 6.5,
+        "config": {
+          "timewindow": {
+            "hideInterval": false,
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "selectedTab": 1,
+            "history": {
+              "historyType": 0,
+              "timewindowMs": 86400000,
+              "interval": 1000,
+              "fixedTimewindow": {
+                "startTimeMs": 1609775433303,
+                "endTimeMs": 1609861833303
+              }
+            },
+            "aggregation": {
+              "type": "NONE",
+              "limit": 200
+            }
+          },
+          "showTitle": true,
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgba(0, 0, 0, 0.87)",
+          "padding": "4px",
+          "settings": {
+            "enableSelection": true,
+            "enableSearch": true,
+            "displayDetails": true,
+            "allowAcknowledgment": true,
+            "allowClear": true,
+            "displayPagination": true,
+            "defaultPageSize": 10,
+            "defaultSortOrder": "-createdTime",
+            "enableSelectColumnDisplay": true,
+            "enableStickyAction": false,
+            "enableFilter": true
+          },
+          "title": "New Alarms table",
+          "dropShadow": true,
+          "enableFullscreen": true,
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400,
+            "padding": "5px 10px 5px 10px"
+          },
+          "useDashboardTimewindow": false,
+          "showLegend": false,
+          "alarmSource": {
+            "type": "entity",
+            "name": "alarms",
+            "entityAliasId": "316b2974-ac4b-9d18-9727-b51d9d67adc6",
+            "filterId": null,
+            "dataKeys": [
+              {
+                "name": "createdTime",
+                "type": "alarm",
+                "label": "Heure de création",
+                "color": "#2196f3",
+                "settings": {},
+                "_hash": 0.41395699949457065
+              },
+              {
+                "name": "originator",
+                "type": "alarm",
+                "label": "Source",
+                "color": "#4caf50",
+                "settings": {},
+                "_hash": 0.720923200941558
+              },
+              {
+                "name": "type",
+                "type": "alarm",
+                "label": "Type",
+                "color": "#f44336",
+                "settings": {},
+                "_hash": 0.30498965056332894
+              },
+              {
+                "name": "severity",
+                "type": "alarm",
+                "label": "Gravité",
+                "color": "#ffc107",
+                "settings": {},
+                "_hash": 0.24566516675659278
+              },
+              {
+                "name": "status",
+                "type": "alarm",
+                "label": "État",
+                "color": "#607d8b",
+                "settings": {},
+                "_hash": 0.3991084205261255
+              }
+            ]
+          },
+          "alarmSearchStatus": "ANY",
+          "alarmsPollingInterval": 5,
+          "showTitleIcon": false,
+          "titleIcon": "more_horiz",
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "widgetStyle": {},
+          "displayTimewindow": true,
+          "actions": {},
+          "alarmStatusList": [
+            "ACTIVE"
+          ],
+          "alarmSeverityList": [],
+          "alarmTypeList": [],
+          "searchPropagatedAlarms": false,
+          "datasources": []
+        },
+        "row": 0,
+        "col": 0,
+        "id": "afbb3835-8b40-edf5-3b0e-1f79e09fa95f"
+      }
+    },
+    "states": {
+      "default": {
+        "name": "IOT Project",
+        "root": true,
+        "layouts": {
+          "main": {
+            "widgets": {
+              "0cab77e0-e34c-eeda-e849-cede7bcf8f98": {
+                "sizeX": 9,
+                "sizeY": 7,
+                "row": 0,
+                "col": 0
+              }
+            },
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      },
+      "details_room": {
+        "name": "${entityName}: Détails salle",
+        "root": false,
+        "layouts": {
+          "main": {
+            "widgets": {
+              "c76d8baf-7652-dafe-0476-bc0bcedfd845": {
+                "sizeX": 11,
+                "sizeY": 5,
+                "row": 5,
+                "col": 0
+              },
+              "b6fee923-6093-49d2-f0f8-1a229a1e51eb": {
+                "sizeX": 7,
+                "sizeY": 5,
+                "row": 0,
+                "col": 11
+              },
+              "52d38bd1-9993-7aa7-d6f3-1b29efc11232": {
+                "sizeX": 5,
+                "sizeY": 5,
+                "row": 0,
+                "col": 6
+              },
+              "a6b567b8-f6c8-1e07-450d-601fbdb016ed": {
+                "sizeX": 6,
+                "sizeY": 5,
+                "row": 0,
+                "col": 0
+              },
+              "afbb3835-8b40-edf5-3b0e-1f79e09fa95f": {
+                "sizeX": 13,
+                "sizeY": 5,
+                "row": 5,
+                "col": 11
+              }
+            },
+            "gridSettings": {
+              "backgroundColor": "#eeeeee",
+              "color": "rgba(0,0,0,0.870588)",
+              "columns": 24,
+              "margin": 10,
+              "backgroundSizeMode": "100%"
+            }
+          }
+        }
+      }
+    },
+    "entityAliases": {
+      "20b30902-3dd9-4418-90d1-f5c0e93621fd": {
+        "id": "20b30902-3dd9-4418-90d1-f5c0e93621fd",
+        "alias": "F001",
+        "filter": {
+          "type": "singleEntity",
+          "resolveMultiple": false,
+          "singleEntity": {
+            "entityType": "DEVICE",
+            "id": "147f18c0-4dc2-11eb-85f1-89bdf3965cf4"
+          }
+        }
+      },
+      "5b59b4a1-388a-6284-a931-127327b93d6c": {
+        "id": "5b59b4a1-388a-6284-a931-127327b93d6c",
+        "alias": "F002",
+        "filter": {
+          "type": "singleEntity",
+          "resolveMultiple": false,
+          "singleEntity": {
+            "entityType": "DEVICE",
+            "id": "1be9e680-4dc2-11eb-85f1-89bdf3965cf4"
+          }
+        }
+      },
+      "eacec17f-f20a-0943-ca45-2bd1dc2611f9": {
+        "id": "eacec17f-f20a-0943-ca45-2bd1dc2611f9",
+        "alias": "IM2AG",
+        "filter": {
+          "type": "entityList",
+          "resolveMultiple": true,
+          "entityType": "DEVICE",
+          "entityList": [
+            "147f18c0-4dc2-11eb-85f1-89bdf3965cf4",
+            "1be9e680-4dc2-11eb-85f1-89bdf3965cf4"
+          ]
+        }
+      },
+      "316b2974-ac4b-9d18-9727-b51d9d67adc6": {
+        "id": "316b2974-ac4b-9d18-9727-b51d9d67adc6",
+        "alias": "Current_room",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": null,
+          "defaultStateEntity": null
+        }
+      }
+    },
+    "filters": {},
+    "timewindow": {
+      "displayValue": "",
+      "hideInterval": false,
+      "hideAggregation": false,
+      "hideAggInterval": false,
+      "selectedTab": 0,
+      "realtime": {
+        "interval": 1000,
+        "timewindowMs": 60000
+      },
+      "history": {
+        "historyType": 0,
+        "interval": 1000,
+        "timewindowMs": 60000,
+        "fixedTimewindow": {
+          "startTimeMs": 1609673184989,
+          "endTimeMs": 1609759584989
+        }
+      },
+      "aggregation": {
+        "type": "AVG",
+        "limit": 2500
+      }
+    },
+    "settings": {
+      "stateControllerId": "entity",
+      "showTitle": false,
+      "showDashboardsSelect": true,
+      "showEntitiesSelect": true,
+      "showDashboardTimewindow": true,
+      "showDashboardExport": true,
+      "toolbarAlwaysOpen": true
+    }
+  },
+  "name": "IOT Project"
+}

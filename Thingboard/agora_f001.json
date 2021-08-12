@@ -1,0 +1,106 @@
+{
+  "ruleChain": {
+    "additionalInfo": {
+      "description": ""
+    },
+    "name": "AGORA F001",
+    "firstRuleNodeId": null,
+    "root": false,
+    "debugMode": true,
+    "configuration": null
+  },
+  "metadata": {
+    "firstNodeIndex": null,
+    "nodes": [
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 27,
+          "layoutY": 412
+        },
+        "type": "org.thingsboard.rule.engine.debug.TbMsgGeneratorNode",
+        "name": "tick",
+        "debugMode": false,
+        "configuration": {
+          "msgCount": 0,
+          "periodInSeconds": 10,
+          "jsScript": "var msg = { temp: 44, humidity: 77 };\nvar metadata = { data: 40 };\nvar msgType = \"POST_TELEMETRY_REQUEST\";\n\nreturn { msg: msg, metadata: metadata, msgType: msgType };",
+          "originatorId": "147f18c0-4dc2-11eb-85f1-89bdf3965cf4",
+          "originatorType": "DEVICE"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 623,
+          "layoutY": 389
+        },
+        "type": "org.thingsboard.rule.engine.transform.TbTransformMsgNode",
+        "name": "transform",
+        "debugMode": false,
+        "configuration": {
+          "jsScript": "// Device name\ncapteurCO2DeviceName = \"F001@Bruno_Vernay.etud21\";\n\n// Device property name\ncapteurCO2DevicePropertyName = \"taux_CO2\";\ncapteurTemperatureDevicePropertyName = \"temperature\";\ncapteurOccupationDevicePropertyName = \"taux_occupation\";\n\n// Get Device data\ncapteurCO2DeviceDataList = msg.result.filter((res) => res\n    .device == capteurCO2DeviceName);\n\n// Get capteur CO2 last data\nlast = capteurCO2DeviceDataList.length - 1;\nmetadataret = {};\ncapteurCO2LastValue = capteurCO2DeviceDataList[last].data;\n\n// Get all capteur CO2 data\ncapteurCO2AllValues = capteurCO2DeviceDataList.map((res) =>\n    res.data);\n\n// Map result\nvar mapCapteurCO2LastValue;\nvar mapCapteurTemperatureLastValue;\nvar mapCapteurOccupationLastValue;\nfor (const [key, value] of Object.entries(\n        capteurCO2LastValue)) {\n    if (key === capteurCO2DevicePropertyName) {\n        mapCapteurCO2LastValue = value;\n    }\n    if (key === capteurTemperatureDevicePropertyName) {\n        mapCapteurTemperatureLastValue = value;\n    }\n    if (key === capteurOccupationDevicePropertyName) {\n        mapCapteurOccupationLastValue = value;\n    }\n}\n\n// Property in thingboard\nmsgret = {\n    \"last_taux_CO2\": mapCapteurCO2LastValue,\n    \"temperature\": mapCapteurTemperatureLastValue,\n    \"taux_occupation\": mapCapteurOccupationLastValue\n};\n\nreturn {\n    msg: msgret,\n    metadataret: metadataret,\n    msgType: msgType\n};\n"
+        }
+      },
+      {
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 322,
+          "layoutY": 391
+        },
+        "type": "org.thingsboard.rule.engine.rest.TbRestApiCallNode",
+        "name": "agora",
+        "debugMode": false,
+        "configuration": {
+          "restEndpointUrlPattern": "http://api.iotagora.net/streams",
+          "requestMethod": "GET",
+          "useSimpleClientHttpFactory": true,
+          "enableProxy": false,
+          "useSystemProxyProperties": false,
+          "proxyScheme": null,
+          "proxyHost": null,
+          "proxyPort": 0,
+          "proxyUser": null,
+          "proxyPassword": null,
+          "readTimeoutMs": 0,
+          "maxParallelRequestsCount": 0,
+          "headers": {
+            "carriots.apikey": "6b22d32723c4c09f631d2aae72e1efddccd3eab7fba28c661e7504fdfeaa8a77",
+            "Content-Type": "application/json"
+          },
+          "useRedisQueueForMsgPersistence": true,
+          "trimQueue": false,
+          "maxQueueSize": 0
+        }
+      }
+    ],
+    "connections": [
+      {
+        "fromIndex": 0,
+        "toIndex": 2,
+        "type": "Success"
+      },
+      {
+        "fromIndex": 2,
+        "toIndex": 1,
+        "type": "Success"
+      }
+    ],
+    "ruleChainConnections": [
+      {
+        "fromIndex": 1,
+        "targetRuleChainId": {
+          "entityType": "RULE_CHAIN",
+          "id": "12da8f80-32f2-11eb-a402-b3c3ed579b6e"
+        },
+        "additionalInfo": {
+          "description": "",
+          "layoutX": 1002,
+          "layoutY": 406,
+          "ruleChainNodeId": "rule-chain-node-5"
+        },
+        "type": "Success"
+      }
+    ]
+  }
+}
